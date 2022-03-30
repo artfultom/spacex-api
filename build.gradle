@@ -1,0 +1,66 @@
+plugins {
+    id 'com.bmuschko.nexus' version '2.3.1'
+    id 'java-library'
+}
+
+group = 'com.github.artfultom'
+archivesBaseName = 'spacex-api'
+version = '1.0.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+modifyPom {
+    project {
+        name = 'spacex-api'
+        description = 'SpaceX API Client'
+        url = 'https://github.com/artfultom/spacex-api'
+
+        scm {
+            url = 'https://github.com/artfultom/spacex-api.git'
+            connection = 'scm:git:https://github.com/artfultom/spacex-api.git'
+            developerConnection = 'scm:git:https://github.com/artfultom/spacex-api.git'
+        }
+
+        licenses {
+            license {
+                name = 'MIT License'
+                url = 'https://raw.githubusercontent.com/artfultom/spacex-api/master/LICENSE'
+                distribution = 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id = 'artfultom'
+                name = 'Andrey Vasilyev'
+                email = 'artfultomcat@gmail.com'
+            }
+        }
+    }
+}
+
+extraArchive {
+    sources = true
+    tests = true
+    javadoc = true
+}
+
+nexus {
+    sign = true
+    repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+    snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots/'
+}
