@@ -11,14 +11,22 @@ public class CoreDto implements Serializable {
 
     private String id;
 
+    private Integer block;
+
     @JsonProperty("reuse_count")
     private Integer reuseCount;
 
-    @JsonProperty("water_landings")
-    private Integer waterLandings;
+    @JsonProperty("rtls_attempts")
+    private Integer rtlsAttempts;
 
-    @JsonProperty("land_landings")
-    private Integer landLandings;
+    @JsonProperty("rtls_landings")
+    private Integer rtlsLandings;
+
+    @JsonProperty("asds_attempts")
+    private Integer asdsAttempts;
+
+    @JsonProperty("asds_landings")
+    private Integer asdsLandings;
 
     @JsonProperty("last_update")
     private String lastUpdate;
@@ -28,8 +36,6 @@ public class CoreDto implements Serializable {
     private String serial;
 
     private String status;
-
-    private String type;
 
     public CoreDto() {
     }
@@ -42,6 +48,14 @@ public class CoreDto implements Serializable {
         this.id = id;
     }
 
+    public Integer getBlock() {
+        return block;
+    }
+
+    public void setBlock(Integer block) {
+        this.block = block;
+    }
+
     public Integer getReuseCount() {
         return reuseCount;
     }
@@ -50,20 +64,36 @@ public class CoreDto implements Serializable {
         this.reuseCount = reuseCount;
     }
 
-    public Integer getWaterLandings() {
-        return waterLandings;
+    public Integer getRtlsAttempts() {
+        return rtlsAttempts;
     }
 
-    public void setWaterLandings(Integer waterLandings) {
-        this.waterLandings = waterLandings;
+    public void setRtlsAttempts(Integer rtlsAttempts) {
+        this.rtlsAttempts = rtlsAttempts;
     }
 
-    public Integer getLandLandings() {
-        return landLandings;
+    public Integer getRtlsLandings() {
+        return rtlsLandings;
     }
 
-    public void setLandLandings(Integer landLandings) {
-        this.landLandings = landLandings;
+    public void setRtlsLandings(Integer rtlsLandings) {
+        this.rtlsLandings = rtlsLandings;
+    }
+
+    public Integer getAsdsAttempts() {
+        return asdsAttempts;
+    }
+
+    public void setAsdsAttempts(Integer asdsAttempts) {
+        this.asdsAttempts = asdsAttempts;
+    }
+
+    public Integer getAsdsLandings() {
+        return asdsLandings;
+    }
+
+    public void setAsdsLandings(Integer asdsLandings) {
+        this.asdsLandings = asdsLandings;
     }
 
     public String getLastUpdate() {
@@ -96,13 +126,5 @@ public class CoreDto implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

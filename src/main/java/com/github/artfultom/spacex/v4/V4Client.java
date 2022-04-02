@@ -8,6 +8,7 @@ import com.github.artfultom.spacex.request.GetResponse;
 import com.github.artfultom.spacex.v4.dto.response.CapsuleDto;
 import com.github.artfultom.spacex.v4.dto.response.CompanyDto;
 import com.github.artfultom.spacex.v4.dto.response.CoreDto;
+import com.github.artfultom.spacex.v4.dto.response.CrewDto;
 
 import java.io.IOException;
 import java.util.List;
@@ -61,7 +62,7 @@ public class V4Client extends SpaceXClient {
     public List<CoreDto> cores() throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
-                .append("capsules")
+                .append("cores")
                 .execute();
 
         ObjectMapper mapper = new ObjectMapper();
@@ -72,7 +73,7 @@ public class V4Client extends SpaceXClient {
     public CoreDto cores(String id) throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
-                .append("capsules")
+                .append("cores")
                 .append(id)
                 .execute();
 
@@ -82,4 +83,29 @@ public class V4Client extends SpaceXClient {
     }
 
     // TODO cores query https://github.com/r-spacex/SpaceX-API/blob/master/docs/cores/v4/query.md
+
+    public List<CrewDto> crew() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("crew")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CrewDto>>(){});
+    }
+
+    public CrewDto crew(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("crew")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CrewDto.class);
+    }
+
+    // TODO crew query https://github.com/r-spacex/SpaceX-API/blob/master/docs/crew/v4/query.md
 }
