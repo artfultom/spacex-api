@@ -1,7 +1,6 @@
 package com.github.artfultom.spacex;
 
-import com.github.artfultom.spacex.request.GetRequest;
-import com.github.artfultom.spacex.request.GetResponse;
+import com.github.artfultom.spacex.v4.V4Client;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
@@ -11,25 +10,15 @@ import java.io.IOException;
 public class SpaceXClient implements Closeable {
 
     private String url = "https://api.spacexdata.com";
-    private String prefix;
 
     private final CloseableHttpClient httpClient;
 
-    public static SpaceXClient createV4() {
-        SpaceXClient client = new SpaceXClient();
-        client.prefix = "v4";
-
-        return client;
+    public static V4Client createV4() {
+        return new V4Client();
     }
 
-    private SpaceXClient() {
+    protected SpaceXClient() {
         this.httpClient = HttpClients.createDefault();
-    }
-
-    public boolean check() throws IOException {
-        GetResponse response = new GetRequest(this).execute();
-
-        return response.getCode() == 200;
     }
 
     @Override
