@@ -26,8 +26,7 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        CompanyResponseDto result = mapper.readValue(response.getBody(), CompanyResponseDto.class);
-        return result;
+        return mapper.readValue(response.getBody(), CompanyResponseDto.class);
     }
 
 }
