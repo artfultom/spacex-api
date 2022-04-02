@@ -1,12 +1,15 @@
 package com.github.artfultom.spacex.v4;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.artfultom.spacex.SpaceXClient;
 import com.github.artfultom.spacex.request.GetRequest;
 import com.github.artfultom.spacex.request.GetResponse;
-import com.github.artfultom.spacex.v4.dto.CompanyResponseDto;
+import com.github.artfultom.spacex.v4.dto.response.CapsuleDto;
+import com.github.artfultom.spacex.v4.dto.response.CompanyDto;
 
 import java.io.IOException;
+import java.util.List;
 
 public class V4Client extends SpaceXClient {
 
@@ -18,7 +21,18 @@ public class V4Client extends SpaceXClient {
         return response.getCode() == 200;
     }
 
-    public CompanyResponseDto company() throws IOException {
+    public List<CapsuleDto> capsules() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("capsules")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CapsuleDto>>(){});
+    }
+
+    public CompanyDto company() throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("company")
@@ -26,7 +40,7 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), CompanyResponseDto.class);
+        return mapper.readValue(response.getBody(), CompanyDto.class);
     }
 
 }

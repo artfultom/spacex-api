@@ -1,4 +1,4 @@
-package com.github.artfultom.spacex.v4.dto;
+package com.github.artfultom.spacex.v4.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -6,12 +6,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CompanyResponseDto implements Serializable {
+public class CompanyDto implements Serializable {
 
-    @JsonProperty("headquarters")
     private Headquarters headquarters;
 
-    @JsonProperty("links")
     private Links links;
 
     private String id;
@@ -45,7 +43,7 @@ public class CompanyResponseDto implements Serializable {
 
     private String summary;
 
-    public CompanyResponseDto() {
+    public CompanyDto() {
     }
 
     public Headquarters getHeadquarters() {
