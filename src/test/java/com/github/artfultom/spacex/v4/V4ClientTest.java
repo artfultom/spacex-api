@@ -3,6 +3,7 @@ package com.github.artfultom.spacex.v4;
 import com.github.artfultom.spacex.SpaceXClient;
 import com.github.artfultom.spacex.v4.dto.response.CapsuleDto;
 import com.github.artfultom.spacex.v4.dto.response.CompanyDto;
+import com.github.artfultom.spacex.v4.dto.response.CoreDto;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -45,6 +46,24 @@ class V4ClientTest {
         V4Client client = SpaceXClient.createV4();
 
         CompanyDto result = client.company();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void cores() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<CoreDto> result = client.cores();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void testCores() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        CoreDto result = client.cores("5e9e2c5bf35918ed873b2664");
 
         assertNotNull(result);
     }

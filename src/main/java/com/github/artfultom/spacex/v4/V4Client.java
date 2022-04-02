@@ -7,6 +7,7 @@ import com.github.artfultom.spacex.request.GetRequest;
 import com.github.artfultom.spacex.request.GetResponse;
 import com.github.artfultom.spacex.v4.dto.response.CapsuleDto;
 import com.github.artfultom.spacex.v4.dto.response.CompanyDto;
+import com.github.artfultom.spacex.v4.dto.response.CoreDto;
 
 import java.io.IOException;
 import java.util.List;
@@ -57,4 +58,28 @@ public class V4Client extends SpaceXClient {
         return mapper.readValue(response.getBody(), CompanyDto.class);
     }
 
+    public List<CoreDto> cores() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("capsules")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CoreDto>>(){});
+    }
+
+    public CoreDto cores(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("capsules")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CoreDto.class);
+    }
+
+    // TODO cores query https://github.com/r-spacex/SpaceX-API/blob/master/docs/cores/v4/query.md
 }
