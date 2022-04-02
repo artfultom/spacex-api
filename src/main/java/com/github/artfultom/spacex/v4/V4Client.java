@@ -32,6 +32,20 @@ public class V4Client extends SpaceXClient {
         return mapper.readValue(response.getBody(), new TypeReference<List<CapsuleDto>>(){});
     }
 
+    public CapsuleDto capsules(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("capsules")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CapsuleDto.class);
+    }
+
+    // TODO capsules query https://github.com/r-spacex/SpaceX-API/blob/master/docs/capsules/v4/query.md
+
     public CompanyDto company() throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)

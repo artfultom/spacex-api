@@ -23,19 +23,28 @@ class V4ClientTest {
     }
 
     @Test
-    void company() throws IOException {
+    void capsules() throws IOException {
         V4Client client = SpaceXClient.createV4();
 
-        CompanyDto result = client.company();
+        List<CapsuleDto> result = client.capsules();
 
         assertNotNull(result);
     }
 
     @Test
-    void capsules() throws IOException {
+    void capsulesOne() throws IOException {
         V4Client client = SpaceXClient.createV4();
 
-        List<CapsuleDto> result = client.capsules();
+        CapsuleDto result = client.capsules("5e9e2c5bf35918ed873b2664");
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void company() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        CompanyDto result = client.company();
 
         assertNotNull(result);
     }
