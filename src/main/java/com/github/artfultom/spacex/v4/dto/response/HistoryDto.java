@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
-import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class HistoryDto implements Serializable {
+
+    private String id;
 
     private String title;
 
@@ -19,25 +20,17 @@ public class HistoryDto implements Serializable {
 
     private String details;
 
-    private List<Link> links;
+    private Link links;
 
     public HistoryDto() {
     }
 
-    public static class Link implements Serializable {
+    public String getId() {
+        return id;
+    }
 
-        private String article;
-
-        public Link() {
-        }
-
-        public String getArticle() {
-            return article;
-        }
-
-        public void setArticle(String article) {
-            this.article = article;
-        }
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -72,11 +65,27 @@ public class HistoryDto implements Serializable {
         this.details = details;
     }
 
-    public List<Link> getLinks() {
+    public Link getLinks() {
         return links;
     }
 
-    public void setLinks(List<Link> links) {
+    public void setLinks(Link links) {
         this.links = links;
+    }
+
+    public static class Link implements Serializable {
+
+        private String article;
+
+        public Link() {
+        }
+
+        public String getArticle() {
+            return article;
+        }
+
+        public void setArticle(String article) {
+            this.article = article;
+        }
     }
 }

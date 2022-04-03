@@ -119,4 +119,123 @@ class V4ClientTest {
 
         assertNotNull(result);
     }
+
+    @Test
+    void launches() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<String> result = client.launches();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void launchesOne() {
+    }
+
+    @Test
+    void launchpads() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<String> result = client.launchpads();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void launchpadsOne() {
+    }
+
+    @Test
+    void payloads() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<String> result = client.payloads();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void payloadsOne() {
+    }
+
+    @Test
+    void roadster() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<String> result = client.roadster();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void roadsterOne() {
+    }
+
+    @Test
+    void rockets() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<String> result = client.rockets();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void rocketsOne() {
+    }
+
+    @Test
+    void ships() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<ShipDto> result = client.ships();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void shipsOne() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        ShipDto result = client.ships("5ea6ed2d080df4000697c901");
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void starlink() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<StarlinkDto> result = client.starlink();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void starlinkOne() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        StarlinkDto result = client.starlink("5eed7713096e59000698561b");
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void history() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<HistoryDto> result = client.history();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void historyOne() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        HistoryDto result = client.history("5f6fb2cfdcfdf403df37971e");
+
+        assertNotNull(result);
+    }
 }

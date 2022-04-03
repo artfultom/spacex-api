@@ -281,7 +281,7 @@ public class V4Client extends SpaceXClient {
 
     // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/rockets/v4/
 
-    public List<String> ships() throws IOException {
+    public List<ShipDto> ships() throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("ships")
@@ -289,10 +289,10 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), new TypeReference<List<String>>(){});
+        return mapper.readValue(response.getBody(), new TypeReference<List<ShipDto>>(){});
     }
 
-    public String ships(String id) throws IOException {
+    public ShipDto ships(String id) throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("ships")
@@ -301,12 +301,12 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), String.class);
+        return mapper.readValue(response.getBody(), ShipDto.class);
     }
 
     // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/ships/v4/
 
-    public List<String> starlink() throws IOException {
+    public List<StarlinkDto> starlink() throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("starlink")
@@ -314,10 +314,10 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), new TypeReference<List<String>>(){});
+        return mapper.readValue(response.getBody(), new TypeReference<List<StarlinkDto>>(){});
     }
 
-    public String starlink(String id) throws IOException {
+    public StarlinkDto starlink(String id) throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("starlink")
@@ -326,7 +326,7 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), String.class);
+        return mapper.readValue(response.getBody(), StarlinkDto.class);
     }
 
     // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/starlink/v4/
