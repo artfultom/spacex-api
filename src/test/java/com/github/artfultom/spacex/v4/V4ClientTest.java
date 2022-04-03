@@ -1,10 +1,7 @@
 package com.github.artfultom.spacex.v4;
 
 import com.github.artfultom.spacex.SpaceXClient;
-import com.github.artfultom.spacex.v4.dto.response.CapsuleDto;
-import com.github.artfultom.spacex.v4.dto.response.CompanyDto;
-import com.github.artfultom.spacex.v4.dto.response.CoreDto;
-import com.github.artfultom.spacex.v4.dto.response.CrewDto;
+import com.github.artfultom.spacex.v4.dto.response.*;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -83,6 +80,42 @@ class V4ClientTest {
         V4Client client = SpaceXClient.createV4();
 
         CrewDto result = client.crew("5ebf1a6e23a9a60006e03a7a");
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void dragons() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<DragonDto> result = client.dragons();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void dragonsOne() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        DragonDto result = client.dragons("5e9d058759b1ff74a7ad5f8f");
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void landpads() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        List<LandpadDto> result = client.landpads();
+
+        assertNotNull(result);
+    }
+
+    @Test
+    void landpadsOne() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        LandpadDto result = client.landpads("5e9e3032383ecb267a34e7c7");
 
         assertNotNull(result);
     }

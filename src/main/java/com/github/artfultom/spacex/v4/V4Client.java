@@ -5,10 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.artfultom.spacex.SpaceXClient;
 import com.github.artfultom.spacex.request.GetRequest;
 import com.github.artfultom.spacex.request.GetResponse;
-import com.github.artfultom.spacex.v4.dto.response.CapsuleDto;
-import com.github.artfultom.spacex.v4.dto.response.CompanyDto;
-import com.github.artfultom.spacex.v4.dto.response.CoreDto;
-import com.github.artfultom.spacex.v4.dto.response.CrewDto;
+import com.github.artfultom.spacex.v4.dto.response.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -46,7 +43,7 @@ public class V4Client extends SpaceXClient {
         return mapper.readValue(response.getBody(), CapsuleDto.class);
     }
 
-    // TODO capsules query https://github.com/r-spacex/SpaceX-API/blob/master/docs/capsules/v4/query.md
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/capsules/v4/
 
     public CompanyDto company() throws IOException {
         GetResponse response = new GetRequest(this)
@@ -82,7 +79,7 @@ public class V4Client extends SpaceXClient {
         return mapper.readValue(response.getBody(), CoreDto.class);
     }
 
-    // TODO cores query https://github.com/r-spacex/SpaceX-API/blob/master/docs/cores/v4/query.md
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/cores/v4/
 
     public List<CrewDto> crew() throws IOException {
         GetResponse response = new GetRequest(this)
@@ -107,5 +104,255 @@ public class V4Client extends SpaceXClient {
         return mapper.readValue(response.getBody(), CrewDto.class);
     }
 
-    // TODO crew query https://github.com/r-spacex/SpaceX-API/blob/master/docs/crew/v4/query.md
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/crew/v4/
+
+    public List<DragonDto> dragons() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("dragons")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<DragonDto>>(){});
+    }
+
+    public DragonDto dragons(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("dragons")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), DragonDto.class);
+    }
+
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/dragons/v4/
+
+    public List<LandpadDto> landpads() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("landpads")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<LandpadDto>>(){});
+    }
+
+    public LandpadDto landpads(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("landpads")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), LandpadDto.class);
+    }
+
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/landpads/v4/
+
+    public List<CrewDto> launches() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("launches")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CrewDto>>(){});
+    }
+
+    public CrewDto launches(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("launches")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CrewDto.class);
+    }
+
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/launches/v4/
+
+    public List<CrewDto> launchpads() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("launchpads")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CrewDto>>(){});
+    }
+
+    public CrewDto launchpads(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("launchpads")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CrewDto.class);
+    }
+
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/launchpads/v4/
+
+    public List<CrewDto> payloads() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("payloads")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CrewDto>>(){});
+    }
+
+    public CrewDto payloads(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("payloads")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CrewDto.class);
+    }
+
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/payloads/v4/
+
+    public List<CrewDto> roadster() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("roadster")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CrewDto>>(){});
+    }
+
+    public CrewDto roadster(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("roadster")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CrewDto.class);
+    }
+
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/roadster/v4/
+
+    public List<CrewDto> rockets() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("rockets")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CrewDto>>(){});
+    }
+
+    public CrewDto rockets(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("rockets")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CrewDto.class);
+    }
+
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/rockets/v4/
+
+    public List<CrewDto> ships() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("ships")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CrewDto>>(){});
+    }
+
+    public CrewDto ships(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("ships")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CrewDto.class);
+    }
+
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/ships/v4/
+
+    public List<CrewDto> starlink() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("starlink")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CrewDto>>(){});
+    }
+
+    public CrewDto starlink(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("starlink")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CrewDto.class);
+    }
+
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/starlink/v4/
+
+    public List<CrewDto> history() throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("history")
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), new TypeReference<List<CrewDto>>(){});
+    }
+
+    public CrewDto history(String id) throws IOException {
+        GetResponse response = new GetRequest(this)
+                .append(prefix)
+                .append("history")
+                .append(id)
+                .execute();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        return mapper.readValue(response.getBody(), CrewDto.class);
+    }
+
+    // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/history/v4/
 }
