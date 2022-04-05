@@ -124,65 +124,81 @@ class V4ClientTest {
     void launches() throws IOException {
         V4Client client = SpaceXClient.createV4();
 
-        List<String> result = client.launches();
+        List<LaunchDto> result = client.launches();
 
         assertNotNull(result);
     }
 
     @Test
-    void launchesOne() {
+    void launchesOne() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        LaunchDto result = client.launches("5eb87cd9ffd86e000604b32a");
+
+        assertNotNull(result);
     }
 
     @Test
     void launchpads() throws IOException {
         V4Client client = SpaceXClient.createV4();
 
-        List<String> result = client.launchpads();
+        List<LaunchpadDto> result = client.launchpads();
 
         assertNotNull(result);
     }
 
     @Test
-    void launchpadsOne() {
+    void launchpadsOne() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        LaunchpadDto result = client.launchpads("5e9e4501f5090910d4566f83");
+
+        assertNotNull(result);
     }
 
     @Test
     void payloads() throws IOException {
         V4Client client = SpaceXClient.createV4();
 
-        List<String> result = client.payloads();
+        List<PayloadDto> result = client.payloads();
 
         assertNotNull(result);
     }
 
     @Test
-    void payloadsOne() {
+    void payloadsOne() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        PayloadDto result = client.payloads("5eb0e4b5b6c3bb0006eeb1e1");
+
+        assertNotNull(result);
     }
 
     @Test
     void roadster() throws IOException {
         V4Client client = SpaceXClient.createV4();
 
-        List<String> result = client.roadster();
+        RoadsterDto result = client.roadster();
 
         assertNotNull(result);
-    }
-
-    @Test
-    void roadsterOne() {
     }
 
     @Test
     void rockets() throws IOException {
         V4Client client = SpaceXClient.createV4();
 
-        List<String> result = client.rockets();
+        List<RocketDto> result = client.rockets();
 
         assertNotNull(result);
     }
 
     @Test
-    void rocketsOne() {
+    void rocketsOne() throws IOException {
+        V4Client client = SpaceXClient.createV4();
+
+        RocketDto result = client.rockets("5e9d0d95eda69955f709d1eb");
+
+        assertNotNull(result);
     }
 
     @Test

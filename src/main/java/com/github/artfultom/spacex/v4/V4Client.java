@@ -156,7 +156,7 @@ public class V4Client extends SpaceXClient {
 
     // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/landpads/v4/
 
-    public List<String> launches() throws IOException {
+    public List<LaunchDto> launches() throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("launches")
@@ -164,10 +164,10 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), new TypeReference<List<String>>(){});
+        return mapper.readValue(response.getBody(), new TypeReference<List<LaunchDto>>(){});
     }
 
-    public String launches(String id) throws IOException {
+    public LaunchDto launches(String id) throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("launches")
@@ -176,12 +176,12 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), String.class);
+        return mapper.readValue(response.getBody(), LaunchDto.class);
     }
 
     // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/launches/v4/
 
-    public List<String> launchpads() throws IOException {
+    public List<LaunchpadDto> launchpads() throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("launchpads")
@@ -189,10 +189,10 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), new TypeReference<List<String>>(){});
+        return mapper.readValue(response.getBody(), new TypeReference<List<LaunchpadDto>>(){});
     }
 
-    public String launchpads(String id) throws IOException {
+    public LaunchpadDto launchpads(String id) throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("launchpads")
@@ -201,12 +201,12 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), String.class);
+        return mapper.readValue(response.getBody(), LaunchpadDto.class);
     }
 
     // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/launchpads/v4/
 
-    public List<String> payloads() throws IOException {
+    public List<PayloadDto> payloads() throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("payloads")
@@ -214,10 +214,10 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), new TypeReference<List<String>>(){});
+        return mapper.readValue(response.getBody(), new TypeReference<List<PayloadDto>>(){});
     }
 
-    public String payloads(String id) throws IOException {
+    public PayloadDto payloads(String id) throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("payloads")
@@ -226,12 +226,12 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), String.class);
+        return mapper.readValue(response.getBody(), PayloadDto.class);
     }
 
     // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/payloads/v4/
 
-    public List<String> roadster() throws IOException {
+    public RoadsterDto roadster() throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("roadster")
@@ -239,24 +239,12 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), new TypeReference<List<String>>(){});
-    }
-
-    public String roadster(String id) throws IOException {
-        GetResponse response = new GetRequest(this)
-                .append(prefix)
-                .append("roadster")
-                .append(id)
-                .execute();
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        return mapper.readValue(response.getBody(), String.class);
+        return mapper.readValue(response.getBody(), RoadsterDto.class);
     }
 
     // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/roadster/v4/
 
-    public List<String> rockets() throws IOException {
+    public List<RocketDto> rockets() throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("rockets")
@@ -264,10 +252,10 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), new TypeReference<List<String>>(){});
+        return mapper.readValue(response.getBody(), new TypeReference<List<RocketDto>>(){});
     }
 
-    public String rockets(String id) throws IOException {
+    public RocketDto rockets(String id) throws IOException {
         GetResponse response = new GetRequest(this)
                 .append(prefix)
                 .append("rockets")
@@ -276,7 +264,7 @@ public class V4Client extends SpaceXClient {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        return mapper.readValue(response.getBody(), String.class);
+        return mapper.readValue(response.getBody(), RocketDto.class);
     }
 
     // TODO https://github.com/r-spacex/SpaceX-API/blob/master/docs/rockets/v4/
