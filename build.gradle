@@ -49,7 +49,7 @@ modifyPom {
             developer {
                 id = 'artfultom'
                 name = 'Andrey Vasilyev'
-                email = 'artfultomcat@gmail.com'
+                email = 'artfultom@protonmail.com'
             }
         }
     }
