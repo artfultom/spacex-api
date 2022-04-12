@@ -6,7 +6,8 @@ V4Client client = SpaceXClient.createV4();
 boolean result = client.check();
 ```
 
-## capsules
+## Capsules
+Detailed info for serialized dragon capsules.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -19,13 +20,15 @@ String id = // some id
 List<CapsuleDto> result = client.capsules(id);
 ```
 
-## company
+## Company
+Detailed info about SpaceX as a company.
 ```
 V4Client client = SpaceXClient.createV4();
 CompanyDto result = client.company();
 ```
 
-## cores
+## Cores
+Detailed info for serialized first stage cores.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -38,7 +41,8 @@ String id = // some id
 CoreDto result = client.cores(id);
 ```
 
-## crew
+## Crew
+Detailed info on dragon crew members.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -51,7 +55,8 @@ String id = // some id
 CrewDto result = client.crew(id);
 ```
 
-## dragons
+## Dragons
+Detailed info about dragon capsule versions.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -64,7 +69,8 @@ String id = // some id
 DragonDto result = client.dragons(id);
 ```
 
-## launches
+## Launches
+Detailed info about landing pads and ships.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -77,7 +83,8 @@ String id = // some id
 LandpadDto result = client.landpads(id);
 ```
 
-## launches
+## Launches
+Detailed info about launches.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -90,7 +97,8 @@ String id = // some id
 LaunchDto result = client.launches(id);
 ```
 
-## launchpads
+## Launchpads
+Detailed info about launchpads.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -103,7 +111,8 @@ String id = // some id
 LaunchpadDto result = client.launchpads(id);
 ```
 
-## payloads
+## Payloads
+Detailed info about launch payloads.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -116,13 +125,15 @@ String id = // some id
 PayloadDto result = client.payloads(id);
 ```
 
-## roadster
+## Roadster
+Detailed info about Elon's Tesla roadster's current position.
 ```
 V4Client client = SpaceXClient.createV4();
 RoadsterDto result = client.roadster();
 ```
 
-## rockets
+## Rockets
+Detailed info about rocket versions.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -135,7 +146,8 @@ String id = // some id
 RocketDto result = client.rockets(id);
 ```
 
-## ships
+## Ships
+Detailed info about ships in the SpaceX fleet.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -148,7 +160,8 @@ String id = // some id
 ShipDto result = client.ships(id);
 ```
 
-## starlink
+## Starlink
+Detailed info about Starlink satellites and orbits.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
@@ -161,7 +174,8 @@ String id = // some id
 StarlinkDto result = client.starlink(id);
 ```
 
-## history
+## History
+Detailed info on SpaceX historical events.
 ### all
 ```
 V4Client client = SpaceXClient.createV4();
