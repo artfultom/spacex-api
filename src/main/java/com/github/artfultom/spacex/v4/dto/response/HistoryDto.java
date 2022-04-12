@@ -13,7 +13,7 @@ public class HistoryDto implements Serializable {
     private String title;
 
     @JsonProperty("event_date_utc")
-    private String eventDateUtc;  // TODO to date
+    private String eventDateUtc;
 
     @JsonProperty("event_date_unix")
     private Long eventDateUnix;
