@@ -1,5 +1,7 @@
 # spacex-api
 
+Other clients https://github.com/r-spacex/SpaceX-API/blob/master/docs/clients.md.
+
 ## Checking
 ```
 V4Client client = SpaceXClient.createV4();
